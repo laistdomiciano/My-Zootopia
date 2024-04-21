@@ -25,14 +25,16 @@ def main ():
 
   for animal in animals_data:  # loop for getting the animals data in a list of dictionaries
     # append information to each string
-    output += f"Name: {animal['name']}\n"
-    output += f"Diet: {animal['characteristics'].get('diet')}\n"
+    output += '<li class="cards__item">'
+    output += f"Name: {animal['name']}<br/>\n"
+    output += f"Diet: {animal['characteristics'].get('diet')}<br/>\n"
     locations = animal['locations']
-    output += f"Location: {locations[0]}\n"
+    output += f"Location: {locations[0]}<br/>\n"
     if animal["characteristics"].get("type") is not None:
-      output += f"Type: {animal['characteristics'].get('type')}\n\n"
+      output += f"Type: {animal['characteristics'].get('type')}<br/>\n\n"
     else:
-      output += "\n"
+      output += "<br/>\n"
+    output += '</li>'
 
   generate_animals_html(output)
   print (output)
